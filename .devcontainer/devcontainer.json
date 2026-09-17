@@ -1,0 +1,25 @@
+{
+  "name": "VNC Linux Desktop",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "forwardPorts": [6080, 5901],
+  "portsAttributes": {
+    "6080": {
+      "label": "VNC Web Client (noVNC)",
+      "onAutoForward": "openBrowser"
+    },
+    "5901": {
+      "label": "VNC Direct",
+      "onAutoForward": "ignore"
+    }
+  },
+  "postStartCommand": "bash /home/vncuser/.startup.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": []
+    }
+  },
+  "remoteUser": "vncuser",
+  "features": {}
+}
